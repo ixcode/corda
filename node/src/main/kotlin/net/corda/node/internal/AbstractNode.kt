@@ -27,9 +27,7 @@ import net.corda.core.messaging.*
 import net.corda.core.node.*
 import net.corda.core.node.services.*
 import net.corda.core.schemas.MappedSchema
-import net.corda.core.serialization.SerializationWhitelist
-import net.corda.core.serialization.SerializeAsToken
-import net.corda.core.serialization.SingletonSerializeAsToken
+import net.corda.core.serialization.*
 import net.corda.core.transactions.LedgerTransaction
 import net.corda.core.utilities.NetworkHostAndPort
 import net.corda.core.utilities.days
@@ -1100,7 +1098,14 @@ abstract class AbstractNode<S>(val configuration: NodeConfiguration,
                 userSource = cordaSource,
                 whitelist = Whitelist.MINIMAL,
                 bootstrapSource = djvmBootstrapSource
-            ).createChild(UserPathSource(userSource), null)
+            ).createChild(
+                userSource = UserPathSource(userSource),
+                newMinimumSeverityLevel = null,
+                visibleAnnotations = setOf(
+                    CordaSerializable::class.java,
+                    ConstructorForDeserialization::class.java
+                )
+            )
         }
     }
 }
