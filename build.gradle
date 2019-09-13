@@ -414,6 +414,7 @@ bintrayConfig {
             'corda-finance-contracts',
             'corda-node',
             'corda-node-api',
+            'corda-node-djvm',
             'corda-test-common',
             'corda-test-utils',
             'corda-test-db',
