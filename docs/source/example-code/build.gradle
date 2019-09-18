@@ -38,7 +38,7 @@ dependencies {
         // and we don't need another one.
         exclude group: 'org.apache.logging.log4j'
     }
-    compile project(':testing:testserver') {
+    compile(project(':testing:testserver')) {
         exclude group: "org.apache.logging.log4j"
     }
     testCompile project(':test-utils')

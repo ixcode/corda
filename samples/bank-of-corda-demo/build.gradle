@@ -23,7 +23,7 @@ dependencies {
     cordaCompile project(':core')
     cordaCompile project(':client:jfx')
     cordaCompile project(':client:rpc')
-    cordaCompile project(':testing:testserver') {
+    cordaCompile(project(':testing:testserver')) {
         exclude group: "org.apache.logging.log4j"
     }
     cordaCompile (project(':node-driver')) {

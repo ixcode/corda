@@ -43,7 +43,7 @@ dependencies {
     cordaRuntime project(path: ":node:capsule", configuration: 'runtimeArtifacts')
     cordaRuntime project(path: ":testing:testserver:testcapsule:", configuration: 'runtimeArtifacts')
     cordaCompile project(':core')
-    cordaCompile project(':testing:testserver') {
+    cordaCompile(project(':testing:testserver')) {
         exclude group: "org.apache.logging.log4j"
     }
 
