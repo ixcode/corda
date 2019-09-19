@@ -99,7 +99,7 @@ data class ParametersUpdateInfo(
 data class StateMachineTransactionMapping(val stateMachineRunId: StateMachineRunId, val transactionId: SecureHash)
 
 /** RPC operations that the node exposes to clients. */
-interface CordaRPCOps : RPCOps {
+interface CordaRPCOps : RPCOps, AutoCloseable {
     /** Returns a list of currently in-progress state machine infos. */
     fun stateMachinesSnapshot(): List<StateMachineInfo>
 

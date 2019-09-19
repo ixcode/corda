@@ -49,7 +49,7 @@ class ReconnectingCordaRPCOps private constructor(
         val reconnectingRPCConnection: ReconnectingRPCConnection,
         private val observersPool: ExecutorService,
         private val userPool: Boolean
-) : AutoCloseable, InternalCordaRPCOps by proxy(reconnectingRPCConnection, observersPool) {
+) : InternalCordaRPCOps by proxy(reconnectingRPCConnection, observersPool) {
     // Constructors that mirror CordaRPCClient.
     constructor(
             nodeHostAndPort: NetworkHostAndPort,

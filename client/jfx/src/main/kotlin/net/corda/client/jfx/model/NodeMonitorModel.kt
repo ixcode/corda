@@ -61,7 +61,7 @@ class NodeMonitorModel : AutoCloseable {
      */
     override fun close() {
         try {
-            (rpc as ReconnectingCordaRPCOps).close()
+            rpc.close()
         } catch (e: Exception) {
             logger.error("Error closing RPC connection to node", e)
         }
